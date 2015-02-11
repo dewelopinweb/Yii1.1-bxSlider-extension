@@ -23,7 +23,6 @@ class BxSlider extends CWidget
                 echo $item;
                 echo CHtml::closeTag('li');
             }
-
         }
         echo CHtml::closeTag('ul');
 
@@ -48,6 +47,7 @@ class BxSlider extends CWidget
             'slideZIndex' => 50,
             'wrapperClass' => 'bx-wrapper',
         );
+
         if( empty($this->options) ){
             $this->options = $default_options;
         }else{
@@ -57,15 +57,15 @@ class BxSlider extends CWidget
         $js_options = CJavaScript::encode($this->options);
 
         Yii::app()->getClientScript()->registerScript(__CLASS__, "
-			$(document).ready(function(){
-				$('#".$this->htmlOptions['id']."').bxSlider($js_options);
-			});
-		");
+            $(document).ready(function(){
+                $('#".$this->htmlOptions['id']."').bxSlider($js_options);
+            });
+        ");
     }
 
     protected function registerClientScript()
     {
-        $assets = dirname(__FILE__).'/bxslider/assets';
+        $assets = dirname(__FILE__).'/bxslider/dist';
         $baseUrl = Yii::app()->assetManager->publish($assets);
 
         $cs = Yii::app()->clientScript;
