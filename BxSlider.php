@@ -65,7 +65,7 @@ class BxSlider extends CWidget
 
     protected function registerClientScript()
     {
-		$assets = dirname(__FILE__).'/dist';
+		$assets = dirname(__FILE__).'/bxslider/dist';
 		$baseUrl = Yii::app()->assetManager->publish($assets);
 
         $cs = Yii::app()->clientScript;
