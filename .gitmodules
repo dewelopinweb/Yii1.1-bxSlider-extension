@@ -1,0 +1,3 @@
+[submodule "bxslider"]
+	path = bxslider
+	url = git@github.com:stevenwanderski/bxslider-4.git
