@@ -47,15 +47,11 @@ class BxSlider extends CWidget
             'slideZIndex' => 50,
             'wrapperClass' => 'bx-wrapper',
         );
-
-        if( empty($this->options) ){
-            $this->options = $default_options;
-        }else{
-            $this->options = array_merge($default_options, $this->options);
-        }
-
+        
+        $this->options = empty($this->options) ? $default_options : array_merge($default_options, $this->options);
+        
         $js_options = CJavaScript::encode($this->options);
-
+        
         Yii::app()->getClientScript()->registerScript(__CLASS__, "
             $(document).ready(function(){
                 $('#".$this->htmlOptions['id']."').bxSlider($js_options);
